@@ -34,7 +34,6 @@ public class CrptApi {
         this.requestCount = new AtomicInteger(0);
         this.scheduler = Executors.newScheduledThreadPool(1);
 
-        // Schedule the rate limit reset task
         long period = timeUnit.toMillis(1);
         scheduler.scheduleAtFixedRate(this::resetRequestCount, period, period, TimeUnit.MILLISECONDS);
     }
